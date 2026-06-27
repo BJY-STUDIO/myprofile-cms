@@ -1,14 +1,3 @@
----
-AIGC:
-  ContentProducer: '001191110102MAD55U9H0F10002'
-  ContentPropagator: '001191110102MAD55U9H0F10002'
-  Label: '1'
-  ProduceID: '37d56cd4-1948-45a1-8819-70d3d144ce0b'
-  PropagateID: '37d56cd4-1948-45a1-8819-70d3d144ce0b'
-  ReservedCode1: '99cd2867-bebc-4edd-8dd3-1b6f5f340901'
-  ReservedCode2: '99cd2867-bebc-4edd-8dd3-1b6f5f340901'
----
-
 # Kernel's Blog CMS
 
 Kernel's Blog 的内容管理后端，基于 [Strapi v5](https://strapi.io/) 构建，为 [Vue 3 前端](https://github.com/BJY-STUDIO/myprofile) 提供文章、作者等 RESTful API。
