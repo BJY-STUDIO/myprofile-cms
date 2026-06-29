@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nav_items",
+  "info": {
+    "singularName": "nav-item",
+    "pluralName": "nav-items",
+    "displayName": "Nav Item"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "default": "article"
+    },
+    "route": {
+      "type": "string",
+      "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "navId": {
+      "type": "string",
+      "required": true
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nav-item.nav-item",
+      "mappedBy": "parent"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::nav-item.nav-item",
+      "inversedBy": "children"
+    }
+  }
+}
