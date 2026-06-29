@@ -31,6 +31,10 @@
       "type": "string",
       "required": true
     },
+    "persistent": {
+      "type": "boolean",
+      "default": false
+    },
     "children": {
       "type": "relation",
       "relation": "oneToMany",

@@ -572,6 +572,7 @@ export interface ApiNavItemNavItem extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     navId: Schema.Attribute.String & Schema.Attribute.Required;
     parent: Schema.Attribute.Relation<'manyToOne', 'api::nav-item.nav-item'>;
+    persistent: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     publishedAt: Schema.Attribute.DateTime;
     route: Schema.Attribute.String & Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
