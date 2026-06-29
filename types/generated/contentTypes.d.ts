@@ -548,6 +548,40 @@ export interface ApiHomeSectionHomeSection extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNavItemNavItem extends Struct.CollectionTypeSchema {
+  collectionName: 'nav_items';
+  info: {
+    displayName: 'Nav Item';
+    pluralName: 'nav-items';
+    singularName: 'nav-item';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    children: Schema.Attribute.Relation<'oneToMany', 'api::nav-item.nav-item'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.String & Schema.Attribute.DefaultTo<'article'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nav-item.nav-item'
+    > &
+      Schema.Attribute.Private;
+    navId: Schema.Attribute.String & Schema.Attribute.Required;
+    parent: Schema.Attribute.Relation<'manyToOne', 'api::nav-item.nav-item'>;
+    publishedAt: Schema.Attribute.DateTime;
+    route: Schema.Attribute.String & Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1062,6 +1096,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::home-section.home-section': ApiHomeSectionHomeSection;
+      'api::nav-item.nav-item': ApiNavItemNavItem;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
