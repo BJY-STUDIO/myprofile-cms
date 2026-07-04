@@ -472,6 +472,11 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    relatedArticles: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::article.article'
+    >;
+    showUpNext: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.UID<'title'>;
     sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     tags: Schema.Attribute.JSON;

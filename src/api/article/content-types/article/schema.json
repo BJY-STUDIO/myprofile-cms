@@ -58,6 +58,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::author.author"
+    },
+    "showUpNext": {
+      "type": "boolean",
+      "default": true
+    },
+    "relatedArticles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article"
     }
   }
 }
