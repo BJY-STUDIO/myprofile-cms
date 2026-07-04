@@ -7,7 +7,7 @@
     "displayName": "Article"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -43,6 +43,16 @@
     "sortOrder": {
       "type": "integer",
       "default": 0
+    },
+    "cardType": {
+      "type": "enumeration",
+      "enum": ["feature", "regular", "compact"],
+      "default": "regular"
+    },
+    "cardSize": {
+      "type": "enumeration",
+      "enum": ["large", "medium", "small"],
+      "default": "medium"
     },
     "author": {
       "type": "relation",

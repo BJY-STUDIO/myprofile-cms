@@ -17,7 +17,7 @@
     },
     "headingLevel": {
       "type": "enumeration",
-      "enum": ["section-header", "sub-heading"],
+      "enum": ["section-header", "sub-heading", "small-heading"],
       "default": "sub-heading",
       "required": true
     },
@@ -28,6 +28,44 @@
     "sortOrder": {
       "type": "integer",
       "default": 0
+    },
+    "sectionId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "maxArticles": {
+      "type": "integer",
+      "default": 6
+    },
+    "titleAlignment": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right"],
+      "default": "left"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#111827"
+    },
+    "topSpacing": {
+      "type": "enumeration",
+      "enum": ["none", "small", "medium", "large"],
+      "default": "large"
+    },
+    "bottomSpacing": {
+      "type": "enumeration",
+      "enum": ["none", "small", "medium", "large"],
+      "default": "large"
+    },
+    "divider": {
+      "type": "boolean",
+      "default": false
+    },
+    "dividerStyle": {
+      "type": "enumeration",
+      "enum": ["solid", "dashed", "dotted"],
+      "default": "solid"
     },
     "featureArticle": {
       "type": "relation",

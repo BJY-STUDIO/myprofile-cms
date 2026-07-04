@@ -448,10 +448,14 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     singularName: 'article';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    cardSize: Schema.Attribute.Enumeration<['large', 'medium', 'small']> &
+      Schema.Attribute.DefaultTo<'medium'>;
+    cardType: Schema.Attribute.Enumeration<['feature', 'regular', 'compact']> &
+      Schema.Attribute.DefaultTo<'regular'>;
     content: Schema.Attribute.RichText;
     coverImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -520,15 +524,23 @@ export interface ApiHomeSectionHomeSection extends Struct.CollectionTypeSchema {
   };
   attributes: {
     articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    bottomSpacing: Schema.Attribute.Enumeration<
+      ['none', 'small', 'medium', 'large']
+    > &
+      Schema.Attribute.DefaultTo<'large'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    divider: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    dividerStyle: Schema.Attribute.Enumeration<['solid', 'dashed', 'dotted']> &
+      Schema.Attribute.DefaultTo<'solid'>;
     featureArticle: Schema.Attribute.Relation<
       'oneToOne',
       'api::article.article'
     >;
     headingLevel: Schema.Attribute.Enumeration<
-      ['section-header', 'sub-heading']
+      ['section-header', 'sub-heading', 'small-heading']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'sub-heading'>;
@@ -538,10 +550,19 @@ export interface ApiHomeSectionHomeSection extends Struct.CollectionTypeSchema {
       'api::home-section.home-section'
     > &
       Schema.Attribute.Private;
+    maxArticles: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<6>;
     noJumplink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     publishedAt: Schema.Attribute.DateTime;
+    sectionId: Schema.Attribute.String;
     sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleAlignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
+    titleColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#111827'>;
+    topSpacing: Schema.Attribute.Enumeration<
+      ['none', 'small', 'medium', 'large']
+    > &
+      Schema.Attribute.DefaultTo<'large'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -564,6 +585,7 @@ export interface ApiNavItemNavItem extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     icon: Schema.Attribute.String & Schema.Attribute.DefaultTo<'article'>;
+    linkedPage: Schema.Attribute.String & Schema.Attribute.DefaultTo<''>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
