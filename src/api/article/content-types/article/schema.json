@@ -64,9 +64,7 @@
       "default": true
     },
     "relatedArticles": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article.article"
+      "type": "json"
     }
   }
 }
