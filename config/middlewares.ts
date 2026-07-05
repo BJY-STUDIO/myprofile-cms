@@ -1,7 +1,24 @@
 export default [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:', 'apollo-server-landing-page.cdn.apollographql.com'],
+          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'apollo-server-landing-page.cdn.apollographql.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'apollo-server-landing-page.cdn.apollographql.com'],
+          'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'apollo-server-landing-page.cdn.apollographql.com'],
+          'style-src': ["'self'", "'unsafe-inline'", 'apollo-server-landing-page.cdn.apollographql.com'],
+          'frame-src': ["'self'", 'sandbox.embed.apollographql.com'],
+          'manifest-src': ['apollo-server-landing-page.cdn.apollographql.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
@@ -9,6 +26,4 @@ export default [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-  // Custom CSP middleware for GraphQL Apollo Sandbox landing page
-  'global::graphql-security',
 ];
