@@ -18,7 +18,7 @@ export default ({ env }) => ({
           description: 'REST API documentation for the MyProfile blog CMS',
           version: '1.0.0',
         },
-        x-strapi-config: {
+        'x-strapi-config': {
           path: '/documentation',
           showGeneratedFiles: true,
         },
