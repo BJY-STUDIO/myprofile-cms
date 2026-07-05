@@ -8,6 +8,9 @@ export default ({ env }) => ({
       defaultLimit: 25,
       maxLimit: 100,
       landingPage: true,
+      apolloServer: {
+        introspection: true,
+      },
     },
   },
 
