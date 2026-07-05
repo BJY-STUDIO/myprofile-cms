@@ -7,6 +7,7 @@ export default ({ env }) => ({
     config: {
       defaultLimit: 25,
       maxLimit: 100,
+      landingPage: true,
     },
   },
   documentation: {
