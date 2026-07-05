@@ -10,20 +10,5 @@ export default ({ env }) => ({
       landingPage: true,
     },
   },
-  documentation: {
-    enabled: true,
-    config: {
-      openAPI: {
-        info: {
-          title: 'MyProfile CMS API',
-          description: 'REST API documentation for the MyProfile blog CMS',
-          version: '1.0.0',
-        },
-        'x-strapi-config': {
-          path: '/documentation',
-          showGeneratedFiles: true,
-        },
-      },
-    },
-  },
+
 });
