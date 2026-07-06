@@ -8,7 +8,7 @@ export default [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:', 'apollo-server-landing-page.cdn.apollographql.com'],
-          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'apollo-server-landing-page.cdn.apollographql.com', 'https://*.r2.cloudflarestorage.com', 'https://*.r2.dev'],
+          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'apollo-server-landing-page.cdn.apollographql.com', 'https://res.cloudinary.com'],
           'media-src': ["'self'", 'data:', 'blob:', 'apollo-server-landing-page.cdn.apollographql.com'],
           'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'apollo-server-landing-page.cdn.apollographql.com'],
           'style-src': ["'self'", "'unsafe-inline'", 'apollo-server-landing-page.cdn.apollographql.com'],
